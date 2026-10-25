@@ -4,6 +4,9 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: playertracer
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -17,4 +20,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: playertracer-jar
-          path: build/libs/playertracer-*[0-9].jar
+          path: playertracer/build/libs/playertracer-*[0-9].jar
